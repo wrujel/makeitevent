@@ -1,8 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Navigation.css";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function Navigation() {
+  const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
+
   return (
     <div className="navigation-menu">
       <nav className="navbar navbar-expand navbar-light bg-light">
@@ -18,9 +21,27 @@ function Navigation() {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/event/create">
-                  Crear Eventos
-                </NavLink>
+                {isAuthenticated ? (
+                  <NavLink className="nav-link" to="/event/create">
+                    Crear Eventos
+                  </NavLink>
+                ) : (
+                  <div></div>
+                )}
+              </li>
+              <li className="nav-item">
+                {isAuthenticated ? (
+                  <button className="nav-link" onClick={() => logout()}>
+                    {user.name}
+                  </button>
+                ) : (
+                  <button
+                    className="nav-link"
+                    onClick={() => loginWithRedirect()}
+                  >
+                    Login
+                  </button>
+                )}
               </li>
             </ul>
           </div>
