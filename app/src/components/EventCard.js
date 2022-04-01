@@ -23,7 +23,7 @@ function EventCard(props) {
       <div className="card__body">
         <p>by {props.creator}</p>
         <div className="card__links">
-          {isAuthenticated ? (
+          {isAuthenticated && user.name === props.creator ? (
             <div>
               <Link className="btn btn-link" to={`/event/edit/${props.id}`}>
                 Edit
