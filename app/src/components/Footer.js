@@ -6,93 +6,93 @@ import { BsInstagram } from "react-icons/bs";
 
 function Footer() {
   return (
-    <div class="container-footer">
-      <footer class="footer">
-        <h5 class="footer_message">
+    <div className="container-footer">
+      <footer className="footer">
+        <h5 className="footer_message">
           Crea tus propios eventos.
           <span>
-            <button class="btn_pasos outline-primary">Get Started</button>
+            <button className="btn_pasos outline-primary">Get Started</button>
           </span>
         </h5>
 
-        <div class="row border-top mb-4">
-          <div class="col-3 mt-4">
+        <div className="row border-top mb-4">
+          <div className="col-3 mt-4">
             <h5>Tu cuenta</h5>
-            <ul class="nav flex-column">
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-muted">
+            <ul className="nav flex-column">
+              <li className="nav-item mb-2">
+                <a href="#" className="nav-link p-0 text-muted">
                   Registrarse
                 </a>
               </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-muted">
+              <li className="nav-item mb-2">
+                <a href="#" className="nav-link p-0 text-muted">
                   Iniciar sesión
                 </a>
               </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-muted">
+              <li className="nav-item mb-2">
+                <a href="#" className="nav-link p-0 text-muted">
                   Ayuda
                 </a>
               </li>
             </ul>
           </div>
 
-          <div class="col-3 mt-4">
+          <div className="col-3 mt-4">
             <h5>Descubrir</h5>
-            <ul class="nav flex-column">
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-muted">
+            <ul className="nav flex-column">
+              <li className="nav-item mb-2">
+                <a href="#" className="nav-link p-0 text-muted">
                   Grupos
                 </a>
               </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-muted">
+              <li className="nav-item mb-2">
+                <a href="#" className="nav-link p-0 text-muted">
                   Calendario
                 </a>
               </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-muted">
+              <li className="nav-item mb-2">
+                <a href="#" className="nav-link p-0 text-muted">
                   Temas
                 </a>
               </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-muted">
+              <li className="nav-item mb-2">
+                <a href="#" className="nav-link p-0 text-muted">
                   Ciudades
                 </a>
               </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-muted">
+              <li className="nav-item mb-2">
+                <a href="#" className="nav-link p-0 text-muted">
                   Eventos en línea
                 </a>
               </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-muted">
+              <li className="nav-item mb-2">
+                <a href="#" className="nav-link p-0 text-muted">
                   Guías locales
                 </a>
               </li>
             </ul>
           </div>
 
-          <div class="col-2 mt-4">
+          <div className="col-2 mt-4">
             <h5>Makeitevent</h5>
-            <ul class="nav flex-column">
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-muted">
+            <ul className="nav flex-column">
+              <li className="nav-item mb-2">
+                <a href="#" className="nav-link p-0 text-muted">
                   Acerca de
                 </a>
               </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-muted">
+              <li className="nav-item mb-2">
+                <a href="#" className="nav-link p-0 text-muted">
                   Blog
                 </a>
               </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-muted">
+              <li className="nav-item mb-2">
+                <a href="#" className="nav-link p-0 text-muted">
                   Empleo
                 </a>
               </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-muted">
+              <li className="nav-item mb-2">
+                <a href="#" className="nav-link p-0 text-muted">
                   Aplicaciones
                 </a>
               </li>
@@ -100,35 +100,35 @@ function Footer() {
           </div>
         </div>
 
-        <div class="wrapper_follow">
-          <div class="wrapper_social">
-            <h5 class="">Síguenos</h5>
-            <div class="d-flex justify-content-between">
-              <ul class="list-unstyled d-flex">
-                <li class="icon_list">
-                  <a class="icons" href="#">
+        <div className="wrapper_follow">
+          <div className="wrapper_social">
+            <h5 className="">Síguenos</h5>
+            <div className="d-flex justify-content-between">
+              <ul className="list-unstyled d-flex">
+                <li className="icon_list">
+                  <a className="icons" href="#">
                     <BsFacebook className="icons" />
                   </a>
                 </li>
-                <li class="px-3">
-                  <a class="icons" href="#">
+                <li className="px-3">
+                  <a className="icons" href="#">
                     <BsTwitter className="icons" />
                   </a>
                 </li>
-                <li class="px-3">
-                  <a class="icons" href="#">
+                <li className="px-3">
+                  <a className="icons" href="#">
                     <BsYoutube className="icons" />
                   </a>
                 </li>
-                <li class="px-3">
-                  <a class="icons" href="#">
+                <li className="px-3">
+                  <a className="icons" href="#">
                     <BsInstagram className="icons" />
                   </a>
                 </li>
               </ul>
             </div>
           </div>
-          <div class="wrapper_apps">
+          <div className="wrapper_apps">
             <a
               href="#home"
               aria-label="Download app from Google Play"
@@ -150,7 +150,7 @@ function Footer() {
                   decoding="async"
                   data-nimg="intrinsic"
                   className="img_2"
-                  srcset="https://secure.meetupstatic.com/next/images/app-download/android/download_en-US.svg?w=128 1x, https://secure.meetupstatic.com/next/images/app-download/android/download_en-US.svg?w=256 2x"
+                  srcSet="https://secure.meetupstatic.com/next/images/app-download/android/download_en-US.svg?w=128 1x, https://secure.meetupstatic.com/next/images/app-download/android/download_en-US.svg?w=256 2x"
                 />
               </span>
             </a>
@@ -176,7 +176,7 @@ function Footer() {
                   decoding="async"
                   data-nimg="intrinsic"
                   className="img_2"
-                  srcset="https://secure.meetupstatic.com/next/images/app-download/ios/download_en-US.svg?w=128 1x, https://secure.meetupstatic.com/next/images/app-download/ios/download_en-US.svg?w=256 2x"
+                  srcSet="https://secure.meetupstatic.com/next/images/app-download/ios/download_en-US.svg?w=128 1x, https://secure.meetupstatic.com/next/images/app-download/ios/download_en-US.svg?w=256 2x"
                 />
               </span>
             </a>
@@ -184,32 +184,32 @@ function Footer() {
         </div>
 
         <div className="footer_end">
-          <span class="text-white pe-4">© 2022 Makeitevents</span>
+          <span className="text-white pe-4">© 2022 Makeitevents</span>
           <a
             href="https://www.meetup.com/terms/"
             data-event-label="Terms of Service"
-            class="footer-link text-muted pe-4"
+            className="footer-link text-muted pe-4"
           >
             Terms of Service
           </a>
           <a
             href="https://www.meetup.com/privacy/"
             data-event-label="Privacy Policy"
-            class="footer-link text-muted pe-4"
+            className="footer-link text-muted pe-4"
           >
             Privacy Policy
           </a>
           <a
             href="https://www.meetup.com/cookie_policy/"
             data-event-label="Cookie Policy"
-            class="footer-link text-muted pe-4"
+            className="footer-link text-muted pe-4"
           >
             Cookie Policy
           </a>
           <a
             href="https://www.meetup.com/help/"
             data-event-label="Help"
-            class="footer-link text-muted"
+            className="footer-link text-muted"
           >
             Help
           </a>

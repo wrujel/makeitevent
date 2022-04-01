@@ -1,25 +1,23 @@
-import { Component } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 import "./EventCard.css";
 
-class EventCard extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      size: 0,
-    };
-  }
-
-  render() {
-    return (
-      <div className="card" key={this.props.id}>
-        <img src={this.props.image} className="card__img" alt="Evento" />
-        <h2 className="card__title">{this.props.title}</h2>
-        <div className="card__body">
-          <p>by {this.props.creator}</p>
+function EventCard(props) {
+  return (
+    <div className="card" key={props.id}>
+      <img src={props.image} className="card__img" alt="Evento" />
+      <h2 className="card__title">{props.title}</h2>
+      <div className="card__body">
+        <p>by {props.creator}</p>
+        <div className="card__links">
+          <Link className="btn btn-link" to={`/event/edit/${props.id}`}>
+            Edit
+          </Link>
+          <button className="btn btn-link">Delete</button>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default EventCard;

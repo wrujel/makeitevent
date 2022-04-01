@@ -1,19 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import Menu from "./components/Menu";
-import Events from "./components/Events";
+import Home from "./pages/Home";
+import CreateEvent from "./pages/CreateEvent";
+import EditEvent from "./pages/EditEvent";
+import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
-import Carousel from "./components/Carousel";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Menu />
-
-    <Carousel />
-    <Events />
-    <Footer />
-  </React.StrictMode>,
+  <Router>
+    <Navigation />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/event/create" element={<CreateEvent />} />
+      <Route path="/event/edit/:id" element={<EditEvent />} />
+    </Routes>
+  </Router>,
   document.getElementById("root")
 );

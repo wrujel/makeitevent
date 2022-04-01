@@ -34,73 +34,73 @@ class Events extends Component {
             />
           </span>
         </p>
-        <ul class="categorias nav">
-          <li class="nav-item nav-item__first mb-2">
+        <ul className="categorias nav">
+          <li className="nav-item nav-item__first mb-2">
             <button className="nav-item__button">
-              <span href="#" class="nav-item_link">
+              <span href="#" className="nav-item_link">
                 All
               </span>
             </button>
           </li>
-          <li class="nav-item mb-2">
+          <li className="nav-item mb-2">
             <button className="nav-item__button">
-              <span href="#" class="nav-item_link">
+              <span href="#" className="nav-item_link">
                 For you
               </span>
             </button>
           </li>
-          <li class="nav-item mb-2 ">
+          <li className="nav-item mb-2 ">
             <button className="nav-item__button">
-              <span href="#" class="nav-item_link">
+              <span href="#" className="nav-item_link">
                 Online
               </span>
             </button>
           </li>
-          <li class="nav-item mb-2 ">
+          <li className="nav-item mb-2 ">
             <button className="nav-item__button">
-              <span href="#" class="nav-item_link">
+              <span href="#" className="nav-item_link">
                 Today
               </span>
             </button>
           </li>
-          <li class="nav-item mb-2 ">
+          <li className="nav-item mb-2 ">
             <button className="nav-item__button">
-              <span href="#" class="nav-item_link">
+              <span href="#" className="nav-item_link">
                 This weekend
               </span>
             </button>
           </li>
-          <li class="nav-item mb-2 ">
+          <li className="nav-item mb-2 ">
             <button className="nav-item__button">
-              <span href="#" class="nav-item_link">
+              <span href="#" className="nav-item_link">
                 Women's History Month
               </span>
             </button>
           </li>
-          <li class="nav-item mb-2">
+          <li className="nav-item mb-2">
             <button className="nav-item__button">
-              <span href="#" class="nav-item_link">
+              <span href="#" className="nav-item_link">
                 Free
               </span>
             </button>
           </li>
-          <li class="nav-item mb-2 ">
+          <li className="nav-item mb-2 ">
             <button className="nav-item__button">
-              <span href="#" class="nav-item_link">
+              <span href="#" className="nav-item_link">
                 Music
               </span>
             </button>
           </li>
-          <li class="nav-item mb-2 ">
+          <li className="nav-item mb-2 ">
             <button className="nav-item__button">
-              <span href="#" class="nav-item_link">
+              <span href="#" className="nav-item_link">
                 Food {"&"} Drink
               </span>
             </button>
           </li>
-          <li class="nav-item mb-2 ">
+          <li className="nav-item mb-2 ">
             <button className="nav-item__button">
-              <span href="#" class="nav-item_link">
+              <span href="#" className="nav-item_link">
                 Charity {"&"} Causes
               </span>
             </button>
@@ -111,8 +111,8 @@ class Events extends Component {
         <div className="events_wrapper">
           {data.map((event) => (
             <EventCard
-              key={event.id}
-              id={event.id}
+              key={event._id}
+              id={event._id}
               title={event.title}
               date={event.date}
               creator={event.creator}
