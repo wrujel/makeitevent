@@ -29,8 +29,23 @@ recordRoutes.route("/events/find/:id").get(function (req, res) {
   });
 });
 
-recordRoutes.route("/events/create").post(function (req, res) {
-  //CREATE
+recordRoutes.route("/events/create").post(function (req, response) {
+  let db_connect = dbo.getDb();
+  let event = {
+    title: req.body.title,
+    date: req.body.date,
+    creator: req.body.creator,
+    about: req.body.about,
+    time_start: req.body.time_start,
+    time_end: req.body.time_end,
+    location: req.body.location,
+    image: req.body.image,
+  };
+
+  db_connect.collection("Events").insertOne(event, function (err, res) {
+    if (err) throw err;
+    response.json(res);
+  });
 });
 
 recordRoutes.route("/events/update/:id").post(function (req, res) {
