@@ -30,22 +30,7 @@ recordRoutes.route("/events/find/:id").get(function (req, res) {
 });
 
 recordRoutes.route("/events/create").post(function (req, res) {
-  const dbConnect = dbo.getDb();
-  const eventDocument = {
-    title: req.body.title,
-    creator: req.body.creator,
-  };
-
-  dbConnect
-    .collection("Events")
-    .insertOne(eventDocument, function (err, result) {
-      if (err) {
-        res.status(400).send("Error inserting events!");
-      } else {
-        console.log(`Added a new event`);
-        res.status(204).send();
-      }
-    });
+  //CREATE
 });
 
 recordRoutes.route("/events/update/:id").post(function (req, res) {
@@ -71,7 +56,7 @@ recordRoutes.route("/events/update/:id").post(function (req, res) {
 
 recordRoutes.route("/events/delete/:id").delete((req, res) => {
   const dbConnect = dbo.getDb();
-  const eventQuery = { _id: req.body.id };
+  const eventQuery = { _id: ObjectId(req.params.id) };
 
   dbConnect.collection("Events").deleteOne(eventQuery, function (err, _result) {
     if (err) {

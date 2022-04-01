@@ -1,18 +1,17 @@
 .card {
   box-shadow: 0 0 10px 5px #e1e5ee;
-  border-radius: 0.2rem;
+  border-radius: 1rem;
   display: flex;
   flex-direction: column;
-  min-width: 28rem;
-  max-width: min-content;
+  width: 20rem;
   height: 20rem;
 }
 
 .card__img {
-  margin-top: 1rem;
-  max-width: fit-content;
+  width: 20rem;
   max-height: 10rem;
   align-self: center;
+  margin-bottom: 1rem;
 }
 
 .card__title {
@@ -28,6 +27,6 @@
 
 @media (max-width: 480px) {
   .card {
-    min-width: 14rem;
+    min-width: 10rem;
   }
 }

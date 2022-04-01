@@ -86,6 +86,7 @@
 .events_wrapper {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 20px;
   padding-bottom: 120px;
 }

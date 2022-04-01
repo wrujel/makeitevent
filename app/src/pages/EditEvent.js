@@ -38,7 +38,6 @@ function EditEvent() {
     return;
   }, [params.id, navigate]);
 
-  // These methods will update the state properties.
   function updateForm(value) {
     return setForm((prev) => {
       return { ...prev, ...value };
@@ -52,7 +51,6 @@ function EditEvent() {
       about: form.about,
     };
 
-    // This will send a post request to update the data in the database.
     await fetch(`http://localhost:5000/events/update/${params.id.toString()}`, {
       method: "POST",
       body: JSON.stringify(editedEvent),
