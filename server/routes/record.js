@@ -55,6 +55,7 @@ recordRoutes.route("/events/update/:id").post(function (req, res) {
     $set: {
       title: req.body.title,
       about: req.body.about,
+      image: req.body.image,
     },
   };
 
