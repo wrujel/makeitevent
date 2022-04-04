@@ -14,7 +14,7 @@ class Events extends Component {
 
   async componentDidMount() {
     const response = await axios.get(
-      `https://makeitevent.herokuapp.com//events`
+      `https://makeitevent.herokuapp.com/events`
     );
     const json = await response.data;
     this.setState({ data: json });
