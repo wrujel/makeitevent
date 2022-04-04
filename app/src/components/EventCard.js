@@ -9,7 +9,7 @@ function EventCard(props) {
   const { user, isAuthenticated } = useAuth0();
 
   async function deleteRecord(id) {
-    await fetch(`http://localhost:5000/events/delete/${id}`, {
+    await fetch(`https://makeitevent.herokuapp.com/events/delete/${id}`, {
       method: "DELETE",
     });
 
