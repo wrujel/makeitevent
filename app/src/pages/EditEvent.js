@@ -17,7 +17,7 @@ function EditEvent() {
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(
-        `http://localhost:5000/events/find/${params.id.toString()}`
+        `https://makeitevent.herokuapp.com/events/find/${params.id.toString()}`
       );
 
       if (!response.ok) {
@@ -75,13 +75,16 @@ function EditEvent() {
       image: url,
     };
 
-    await fetch(`http://localhost:5000/events/update/${params.id.toString()}`, {
-      method: "POST",
-      body: JSON.stringify(editedEvent),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    await fetch(
+      `https://makeitevent.herokuapp.com/events/update/${params.id.toString()}`,
+      {
+        method: "POST",
+        body: JSON.stringify(editedEvent),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
   }
 
   return (
