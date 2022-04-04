@@ -31,8 +31,17 @@ function Navigation() {
               </li>
               <li className="nav-item">
                 {isAuthenticated ? (
+                  <NavLink className="nav-link" to="/profile">
+                    Profile
+                  </NavLink>
+                ) : (
+                  <div></div>
+                )}
+              </li>
+              <li className="nav-item">
+                {isAuthenticated ? (
                   <button className="nav-link" onClick={() => logout()}>
-                    {user.name}
+                    Logout
                   </button>
                 ) : (
                   <button
