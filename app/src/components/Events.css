@@ -83,6 +83,14 @@
   margin-top: 29px;
 }
 
+.events_wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-bottom: 120px;
+}
+
 @media (max-width: 969px) {
   .nav-item {
     padding-left: 0px;

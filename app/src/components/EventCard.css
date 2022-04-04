@@ -1,18 +1,17 @@
 .card {
   box-shadow: 0 0 10px 5px #e1e5ee;
-  border-radius: 0.2rem;
+  border-radius: 1rem;
   display: flex;
   flex-direction: column;
-  min-width: 28rem;
-  max-width: min-content;
+  width: 20rem;
   height: 20rem;
 }
 
 .card__img {
-  margin-top: 1rem;
-  max-width: fit-content;
+  width: 20rem;
   max-height: 10rem;
   align-self: center;
+  margin-bottom: 1rem;
 }
 
 .card__title {
@@ -21,20 +20,13 @@
   margin-right: 1rem;
 }
 
-.card__row {
-  margin: 1rem;
+.card__links {
   display: flex;
-  justify-content: space-between;
-}
-
-.card__btn {
-  background-color: dodgerblue;
-  border-radius: 0.4rem;
-  color: #fff;
+  flex-direction: row;
 }
 
 @media (max-width: 480px) {
   .card {
-    min-width: 14rem;
+    min-width: 10rem;
   }
 }

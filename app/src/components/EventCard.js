@@ -1,33 +1,49 @@
-import react from "react";
+import React from "react";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
 import "./EventCard.css";
+import { useAuth0 } from "@auth0/auth0-react";
 
-class EventCard extends react.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      size: 0,
-    };
+function EventCard(props) {
+  const navigate = useNavigate();
+  const { user, isAuthenticated } = useAuth0();
+
+  async function deleteRecord(id) {
+    await fetch(`http://localhost:5000/events/delete/${id}`, {
+      method: "DELETE",
+    });
+
+    navigate("/");
   }
 
-  render() {
-    return (
-      <div className="card" key="1">
-        <img
-          src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F237905649%2F215986123110%2F1%2Foriginal.20220228-140544?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=3d2130e4702d8470a90e348fbc2764cc"
-          className="card__img"
-          alt="Evento"
-        />
-        <h2 className="card__title">
-          Leading Through Innovation: Attitude for Success
-        </h2>
-        <div className="card__body">
-          <div className="card__row">
-            <button className="card__btn">Go To Detail</button>
-          </div>
+  return (
+    <div className="card" key={props.id}>
+      <img src={props.image} className="card__img" alt="Evento" />
+      <h2 className="card__title">{props.title}</h2>
+      <div className="card__body">
+        <p>by {props.creator}</p>
+        <div className="card__links">
+          {isAuthenticated && user.name === props.creator ? (
+            <div>
+              <Link className="btn btn-link" to={`/event/edit/${props.id}`}>
+                Edit
+              </Link>
+              <button
+                className="btn btn-link"
+                onClick={() => {
+                  deleteRecord(props.id);
+                }}
+              >
+                Delete
+              </button>
+            </div>
+          ) : (
+            <div></div>
+          )}
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default EventCard;

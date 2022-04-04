@@ -7,7 +7,7 @@ function Carousel() {
     <div className="container__portada">
       <div className="container__content">
         <Textportada className="text_portada" />
-        <a class="btn_carousel btn btn-lg btn-primary" href="#">
+        <a className="btn_carousel btn btn-lg btn-primary" href="#">
           Find your next event
         </a>
       </div>
