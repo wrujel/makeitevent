@@ -4,6 +4,8 @@ import { ReactComponent as Arrowsvg } from "../images/arrow.svg";
 import axios from "axios";
 import { Component } from "react";
 
+const URI = process.env.REACT_APP_BACKEND_SERVER;
+
 class Events extends Component {
   constructor() {
     super();
@@ -13,9 +15,7 @@ class Events extends Component {
   }
 
   async componentDidMount() {
-    const response = await axios.get(
-      `https://makeitevent.herokuapp.com/events`
-    );
+    const response = await axios.get(`${URI}/events`);
     const json = await response.data;
     this.setState({ data: json });
   }

@@ -4,8 +4,6 @@ import "./index.css";
 import Home from "./pages/Home";
 import CreateEvent from "./pages/CreateEvent/CreateEvent";
 import EditEvent from "./pages/EditEvent/EditEvent";
-import CreateEvent from "./pages/CreateEvent";
-import EditEvent from "./pages/EditEvent";
 import Profile from "./pages/Profile";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Navigation from "./components/Navigation";

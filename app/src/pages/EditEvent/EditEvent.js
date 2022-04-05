@@ -2,6 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
 import "./EditEvent.css";
 
+const URI = process.env.REACT_APP_BACKEND_SERVER;
+const CLOUD_NAME = process.env.REACT_APP_CLOUD_NAME;
+const UPLOAD_PRESET = process.env.REACT_APP_UPLOAD_PRESET;
+const CLOUDINARY_URI = process.env.REACT_APP_CLOUDINARY_URI;
+
 function EditEvent() {
   const [form, setForm] = useState({
     title: "",
@@ -17,7 +22,7 @@ function EditEvent() {
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(
-        `https://makeitevent.herokuapp.com/events/find/${params.id.toString()}`
+        `${URI}/events/find/${params.id.toString()}`
       );
 
       if (!response.ok) {
@@ -53,9 +58,9 @@ function EditEvent() {
   async function uploadImage() {
     const data = new FormData();
     data.append("file", image);
-    data.append("upload_preset", "makeitevent");
-    data.append("cloud_name", "dwovtydne");
-    await fetch("https://api.cloudinary.com/v1_1/dwovtydne/image/upload", {
+    data.append("upload_preset", UPLOAD_PRESET);
+    data.append("cloud_name", CLOUD_NAME);
+    await fetch(CLOUDINARY_URI, {
       method: "post",
       body: data,
     })
@@ -75,16 +80,13 @@ function EditEvent() {
       image: url,
     };
 
-    await fetch(
-      `https://makeitevent.herokuapp.com/events/update/${params.id.toString()}`,
-      {
-        method: "POST",
-        body: JSON.stringify(editedEvent),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    await fetch(`${URI}/events/update/${params.id.toString()}`, {
+      method: "POST",
+      body: JSON.stringify(editedEvent),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
   }
 
   return (
