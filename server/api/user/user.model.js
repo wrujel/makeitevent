@@ -23,6 +23,12 @@ const CreditCardSchema = new mongoose.Schema({
         type: String,
         required: true,
         trim: true
-    }
+    },
+    
 
-})
+}, { _id: false})
+
+const BillingSchema = new mongoose.Schema({
+    creditCards: [CreditCardSchema],
+    customerId: String,
+}, { _id: false }); 
