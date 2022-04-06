@@ -4,12 +4,14 @@ import { useNavigate } from "react-router";
 import "./EventCard.css";
 import { useAuth0 } from "@auth0/auth0-react";
 
+const URI = process.env.REACT_APP_BACKEND_SERVER;
+
 function EventCard(props) {
   const navigate = useNavigate();
   const { user, isAuthenticated } = useAuth0();
 
   async function deleteRecord(id) {
-    await fetch(`https://makeitevent.herokuapp.com/events/delete/${id}`, {
+    await fetch(`${URI}/events/delete/${id}`, {
       method: "DELETE",
     });
 
