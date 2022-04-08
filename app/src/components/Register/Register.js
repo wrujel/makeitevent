@@ -1,58 +1,16 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import Form from "react-validation/build/form";
-import Input from "react-validation/build/input";
-import CheckButton from "react-validation/build/button";
-import { isEmail } from "validator";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as Yup from "yup";
 import "./Register.css";
 
-import { register } from "../../actions/auth";
+import { register as actionRegister } from "../../actions/auth";
 import { clearMessage } from "../../actions/message";
-
-const required = (value) => {
-  if (!value) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        This field is required!
-      </div>
-    );
-  }
-};
-
-const validEmail = (value) => {
-  if (!isEmail(value)) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        This is not a valid email.
-      </div>
-    );
-  }
-};
-
-const vusername = (value) => {
-  if (value.length < 3 || value.length > 20) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        The username must be between 3 and 20 characters.
-      </div>
-    );
-  }
-};
-
-const vpassword = (value) => {
-  if (value.length < 6 || value.length > 40) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        The password must be between 6 and 40 characters.
-      </div>
-    );
-  }
-};
 
 const Register = () => {
   const form = useRef();
-  const checkBtn = useRef();
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -61,6 +19,31 @@ const Register = () => {
 
   const { message } = useSelector((state) => state.message);
   const dispatch = useDispatch();
+
+  const validationSchema = Yup.object().shape({
+    username: Yup.string()
+      .required("Username is required")
+      .min(6, "Username must be at least 6 characters")
+      .max(20, "Username must not exceed 20 characters"),
+    email: Yup.string().required("Email is required").email("Email is invalid"),
+    password: Yup.string()
+      .required("Password is required")
+      .min(6, "Password must be at least 6 characters")
+      .max(40, "Password must not exceed 40 characters"),
+    confirmPassword: Yup.string()
+      .required("Confirm Password is required")
+      .oneOf([Yup.ref("password"), null], "Confirm Password does not match"),
+    acceptTerms: Yup.bool().oneOf([true], "Accept Terms is required"),
+  });
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(validationSchema),
+  });
 
   useEffect(() => {
     dispatch(clearMessage());
@@ -82,21 +65,15 @@ const Register = () => {
   };
 
   const handleRegister = (e) => {
-    e.preventDefault();
-
     setSuccessful(false);
 
-    form.current.validateAll();
-
-    if (checkBtn.current.context._errors.length === 0) {
-      dispatch(register(username, email, password))
-        .then(() => {
-          setSuccessful(true);
-        })
-        .catch(() => {
-          setSuccessful(false);
-        });
-    }
+    dispatch(actionRegister(username, email, password))
+      .then(() => {
+        setSuccessful(true);
+      })
+      .catch(() => {
+        setSuccessful(false);
+      });
   };
 
   return (
@@ -108,45 +85,93 @@ const Register = () => {
           className="profile-img-card"
         />
 
-        <Form onSubmit={handleRegister} ref={form}>
+        <form onSubmit={handleSubmit(handleRegister)} ref={form}>
           <div className="form-group">
             <label htmlFor="username">Username</label>
-            <Input
+            <input
               type="text"
-              className="form-control"
               name="username"
-              value={username}
+              {...register("username")}
+              className={`form-control ${errors.username ? "is-invalid" : ""}`}
               onChange={onChangeUsername}
-              validations={[required, vusername]}
             />
+            <div className="invalid-feedback">{errors.username?.message}</div>
           </div>
 
           <div className="form-group">
             <label htmlFor="email">Email</label>
-            <Input
+            <input
               type="text"
-              className="form-control"
               name="email"
-              value={email}
+              {...register("email")}
+              className={`form-control ${errors.email ? "is-invalid" : ""}`}
               onChange={onChangeEmail}
-              validations={[required, validEmail]}
             />
+            <div className="invalid-feedback">{errors.email?.message}</div>
           </div>
 
           <div className="form-group">
             <label htmlFor="password">Password</label>
-            <Input
+            <input
               type="password"
-              className="form-control"
               name="password"
-              value={password}
+              {...register("password")}
+              className={`form-control ${errors.password ? "is-invalid" : ""}`}
               onChange={onChangePassword}
-              validations={[required, vpassword]}
             />
+            <div className="invalid-feedback">{errors.password?.message}</div>
           </div>
 
           <div className="form-group">
-            <button className="btn btn-primary btn-block">Sign Up</button>
+            <label>Confirm Password</label>
+            <input
+              name="confirmPassword"
+              type="password"
+              {...register("confirmPassword")}
+              className={`form-control ${
+                errors.confirmPassword ? "is-invalid" : ""
+              }`}
+            />
+            <div className="invalid-feedback">
+              {errors.confirmPassword?.message}
+            </div>
+          </div>
+
+          <div className="form-group form-check check-terms">
+            <input
+              name="acceptTerms"
+              type="checkbox"
+              {...register("acceptTerms")}
+              className={`form-check-input ${
+                errors.acceptTerms ? "is-invalid" : ""
+              }`}
+            />
+            <label htmlFor="acceptTerms" className="form-check-label">
+              I have read and agree to the Terms
+            </label>
+            <div className="invalid-feedback">
+              {errors.acceptTerms?.message}
+            </div>
+          </div>
+
+          <div className="form-group register-buttons-wrapper">
+            <button
+              type="submit"
+              className="btn btn-primary"
+              disabled={!successful}
+            >
+              {!successful && (
+                <span className="spinner-border spinner-border-sm"></span>
+              )}
+              <span>Register</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => reset()}
+              className="btn btn-warning float-right"
+            >
+              Reset
+            </button>
           </div>
 
           {message && (
@@ -161,8 +186,7 @@ const Register = () => {
               </div>
             </div>
           )}
-          <CheckButton style={{ display: "none" }} ref={checkBtn} />
-        </Form>
+        </form>
       </div>
     </div>
   );

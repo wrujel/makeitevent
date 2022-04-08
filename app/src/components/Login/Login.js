@@ -2,27 +2,16 @@ import React, { useState, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 
-import Form from "react-validation/build/form";
-import Input from "react-validation/build/input";
-import CheckButton from "react-validation/build/button";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as Yup from "yup";
 
 import { login } from "../../actions/auth";
 import { clearMessage } from "../../actions/message";
 import "./Login.css";
 
-const required = (value) => {
-  if (!value) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        This field is required!
-      </div>
-    );
-  }
-};
-
 const Login = (props) => {
   const form = useRef();
-  const checkBtn = useRef();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -32,6 +21,19 @@ const Login = (props) => {
   const { message } = useSelector((state) => state.message);
 
   const dispatch = useDispatch();
+
+  const validationSchema = Yup.object().shape({
+    username: Yup.string().required("Username is required"),
+    password: Yup.string().required("Password is required"),
+  });
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(validationSchema),
+  });
 
   useEffect(() => {
     dispatch(clearMessage());
@@ -48,24 +50,16 @@ const Login = (props) => {
   };
 
   const handleLogin = (e) => {
-    e.preventDefault();
-
     setLoading(true);
 
-    form.current.validateAll();
-
-    if (checkBtn.current.context._errors.length === 0) {
-      dispatch(login(username, password))
-        .then(() => {
-          props.history.push("/profile");
-          window.location.reload();
-        })
-        .catch(() => {
-          setLoading(false);
-        });
-    } else {
-      setLoading(false);
-    }
+    dispatch(login(username, password))
+      .then(() => {
+        props.history.push("/profile");
+        window.location.reload();
+      })
+      .catch(() => {
+        setLoading(false);
+      });
   };
 
   if (isLoggedIn) {
@@ -81,33 +75,37 @@ const Login = (props) => {
           className="profile-img-card"
         />
 
-        <Form onSubmit={handleLogin} ref={form}>
+        <form onSubmit={handleSubmit(handleLogin)} ref={form}>
           <div className="form-group">
             <label htmlFor="username">Username</label>
-            <Input
+            <input
               type="text"
-              className="form-control"
               name="username"
-              value={username}
+              {...register("username")}
+              className={`form-control ${errors.username ? "is-invalid" : ""}`}
               onChange={onChangeUsername}
-              validations={[required]}
             />
+            <div className="invalid-feedback">{errors.username?.message}</div>
           </div>
 
           <div className="form-group">
             <label htmlFor="password">Password</label>
-            <Input
+            <input
               type="password"
-              className="form-control"
               name="password"
-              value={password}
+              {...register("password")}
+              className={`form-control ${errors.password ? "is-invalid" : ""}`}
               onChange={onChangePassword}
-              validations={[required]}
             />
+            <div className="invalid-feedback">{errors.password?.message}</div>
           </div>
 
-          <div className="form-group">
-            <button className="btn btn-primary btn-block" disabled={loading}>
+          <div className="form-group login-buttons-wrapper">
+            <button
+              type="submit"
+              className="btn btn-primary"
+              disabled={loading}
+            >
               {loading && (
                 <span className="spinner-border spinner-border-sm"></span>
               )}
@@ -122,8 +120,7 @@ const Login = (props) => {
               </div>
             </div>
           )}
-          <CheckButton style={{ display: "none" }} ref={checkBtn} />
-        </Form>
+        </form>
       </div>
     </div>
   );

@@ -1,3 +1,13 @@
 .message-option {
     margin-top: 30px;
 }
+
+.check-terms {
+    margin-top: 1.5rem;
+}
+
+.register-buttons-wrapper{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+}

@@ -33,3 +33,7 @@ label {
     -webkit-border-radius: 50%;
     border-radius: 50%;
 }
+
+.login-buttons-wrapper{
+    margin-top: 2rem;
+}
