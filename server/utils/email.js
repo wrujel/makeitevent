@@ -10,7 +10,7 @@ async function sendEmail(data) {
       
     from: "york028633@gmail.com",
     to: "york0286@gmail.com",
-    subject: "Hello ✔",
+    subject: "Hello ✔✔",
     template_id: "d-8dd598b236904181ae560d00be12c13b",
     dynamic_template_data: {
       name: "henry",
