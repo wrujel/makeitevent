@@ -10,6 +10,10 @@ const eventSchema = new Schema(
     time_end: Date,
     location: String,
     imgURL: String,
+    user_id: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   {
     collection: "Events",

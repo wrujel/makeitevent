@@ -1,4 +1,5 @@
 import Event from "../models/Event";
+import User from "../models/User";
 
 export const createEvent = async (req, res) => {
   const {
@@ -10,7 +11,9 @@ export const createEvent = async (req, res) => {
     time_end,
     location,
     imgURL,
+    username,
   } = req.body;
+  console.log("dsadsad");
 
   try {
     const newEvent = new Event({
@@ -24,6 +27,8 @@ export const createEvent = async (req, res) => {
       imgURL,
     });
 
+    const foundUser = await User.findOne({ username: username });
+    newEvent.user_id = foundUser._id;
     const eventSaved = await newEvent.save();
 
     res.json(eventSaved);
@@ -40,7 +45,7 @@ export const getEventById = async (req, res) => {
   res.json(event);
 };
 
-export const getEvent = async (req, res) => {
+export const getEvents = async (req, res) => {
   const events = await Event.find();
   return res.json(events);
 };

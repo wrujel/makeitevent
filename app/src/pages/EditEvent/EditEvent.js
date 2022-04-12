@@ -91,7 +91,7 @@ function EditEvent() {
 
   return (
     <div className="editEvent container mt-3">
-      <h3 className="title">Update Record</h3>
+      <h3 className="title">Update Event</h3>
       <form onSubmit={onSubmit}>
         <img src={form.image} alt="Event" className="event-image" />
         <div className="form-group">

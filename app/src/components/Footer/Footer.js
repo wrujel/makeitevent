@@ -20,17 +20,17 @@ function Footer() {
             <h5>Tu cuenta</h5>
             <ul className="nav flex-column">
               <li className="nav-item mb-2">
-                <a href="#" className="nav-link p-0 text-muted">
+                <a href="#home" className="nav-link p-0 text-muted">
                   Registrarse
                 </a>
               </li>
               <li className="nav-item mb-2">
-                <a href="#" className="nav-link p-0 text-muted">
+                <a href="#home" className="nav-link p-0 text-muted">
                   Iniciar sesión
                 </a>
               </li>
               <li className="nav-item mb-2">
-                <a href="#" className="nav-link p-0 text-muted">
+                <a href="#home" className="nav-link p-0 text-muted">
                   Ayuda
                 </a>
               </li>
@@ -41,32 +41,32 @@ function Footer() {
             <h5>Descubrir</h5>
             <ul className="nav flex-column">
               <li className="nav-item mb-2">
-                <a href="#" className="nav-link p-0 text-muted">
+                <a href="#home" className="nav-link p-0 text-muted">
                   Grupos
                 </a>
               </li>
               <li className="nav-item mb-2">
-                <a href="#" className="nav-link p-0 text-muted">
+                <a href="#home" className="nav-link p-0 text-muted">
                   Calendario
                 </a>
               </li>
               <li className="nav-item mb-2">
-                <a href="#" className="nav-link p-0 text-muted">
+                <a href="#home" className="nav-link p-0 text-muted">
                   Temas
                 </a>
               </li>
               <li className="nav-item mb-2">
-                <a href="#" className="nav-link p-0 text-muted">
+                <a href="#home" className="nav-link p-0 text-muted">
                   Ciudades
                 </a>
               </li>
               <li className="nav-item mb-2">
-                <a href="#" className="nav-link p-0 text-muted">
+                <a href="#home" className="nav-link p-0 text-muted">
                   Eventos en línea
                 </a>
               </li>
               <li className="nav-item mb-2">
-                <a href="#" className="nav-link p-0 text-muted">
+                <a href="#home" className="nav-link p-0 text-muted">
                   Guías locales
                 </a>
               </li>
@@ -77,22 +77,22 @@ function Footer() {
             <h5>Makeitevent</h5>
             <ul className="nav flex-column">
               <li className="nav-item mb-2">
-                <a href="#" className="nav-link p-0 text-muted">
+                <a href="#home" className="nav-link p-0 text-muted">
                   Acerca de
                 </a>
               </li>
               <li className="nav-item mb-2">
-                <a href="#" className="nav-link p-0 text-muted">
+                <a href="#home" className="nav-link p-0 text-muted">
                   Blog
                 </a>
               </li>
               <li className="nav-item mb-2">
-                <a href="#" className="nav-link p-0 text-muted">
+                <a href="#home" className="nav-link p-0 text-muted">
                   Empleo
                 </a>
               </li>
               <li className="nav-item mb-2">
-                <a href="#" className="nav-link p-0 text-muted">
+                <a href="#home" className="nav-link p-0 text-muted">
                   Aplicaciones
                 </a>
               </li>
@@ -106,22 +106,22 @@ function Footer() {
             <div className="d-flex justify-content-between">
               <ul className="list-unstyled d-flex">
                 <li className="icon_list">
-                  <a className="icons" href="#">
+                  <a className="icons" href="#home">
                     <BsFacebook className="icons" />
                   </a>
                 </li>
                 <li className="px-3">
-                  <a className="icons" href="#">
+                  <a className="icons" href="#home">
                     <BsTwitter className="icons" />
                   </a>
                 </li>
                 <li className="px-3">
-                  <a className="icons" href="#">
+                  <a className="icons" href="#home">
                     <BsYoutube className="icons" />
                   </a>
                 </li>
                 <li className="px-3">
-                  <a className="icons" href="#">
+                  <a className="icons" href="#home">
                     <BsInstagram className="icons" />
                   </a>
                 </li>
@@ -186,28 +186,28 @@ function Footer() {
         <div className="footer_end">
           <span className="text-white pe-4">© 2022 Makeitevents</span>
           <a
-            href="https://www.meetup.com/terms/"
+            href="https://www.makeitevent.com"
             data-event-label="Terms of Service"
             className="footer-link text-muted pe-4"
           >
             Terms of Service
           </a>
           <a
-            href="https://www.meetup.com/privacy/"
+            href="https://www.makeitevent.com"
             data-event-label="Privacy Policy"
             className="footer-link text-muted pe-4"
           >
             Privacy Policy
           </a>
           <a
-            href="https://www.meetup.com/cookie_policy/"
+            href="https://www.makeitevent.com"
             data-event-label="Cookie Policy"
             className="footer-link text-muted pe-4"
           >
             Cookie Policy
           </a>
           <a
-            href="https://www.meetup.com/help/"
+            href="https://www.makeitevent.com"
             data-event-label="Help"
             className="footer-link text-muted"
           >

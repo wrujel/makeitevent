@@ -16,6 +16,7 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [successful, setSuccessful] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const { message } = useSelector((state) => state.message);
   const dispatch = useDispatch();
@@ -66,13 +67,16 @@ const Register = () => {
 
   const handleRegister = (e) => {
     setSuccessful(false);
+    setLoading(true);
 
     dispatch(actionRegister(username, email, password))
       .then(() => {
         setSuccessful(true);
+        setLoading(false);
       })
       .catch(() => {
         setSuccessful(false);
+        setLoading(false);
       });
   };
 
@@ -158,9 +162,9 @@ const Register = () => {
             <button
               type="submit"
               className="btn btn-primary"
-              disabled={!successful}
+              disabled={loading}
             >
-              {!successful && (
+              {loading && (
                 <span className="spinner-border spinner-border-sm"></span>
               )}
               <span>Register</span>
