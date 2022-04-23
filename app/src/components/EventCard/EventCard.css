@@ -1,0 +1,32 @@
+.card {
+  box-shadow: 0 0 10px 5px #e1e5ee;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  height: 20rem;
+}
+
+.card__img {
+  width: 20rem;
+  max-height: 10rem;
+  align-self: center;
+  margin-bottom: 1rem;
+}
+
+.card__title {
+  font-size: medium;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.card__links {
+  display: flex;
+  flex-direction: row;
+}
+
+@media (max-width: 480px) {
+  .card {
+    min-width: 10rem;
+  }
+}

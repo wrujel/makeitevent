@@ -1,20 +1,21 @@
-"use strict";
+require("dotenv").config();
+("use strict");
 const nodemailer = require("nodemailer");
 const sgMail = require("@sendgrid/mail");
 
 async function sendEmail(data) {
   sgMail.setApiKey(
-    "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"
+    "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"
   );
+
   const msg = {
-      
     from: "york028633@gmail.com",
-    to: "york0286@gmail.com",
+    to: "henry_tene@hotmail.com",
     subject: "Hello ✔✔",
     template_id: "d-8dd598b236904181ae560d00be12c13b",
     dynamic_template_data: {
       name: "henry",
-      email: "henry_tene@hotmail.com",
+      email: "henry_tene@mail.com",
     },
   };
   try {
@@ -33,24 +34,21 @@ async function main() {
     secure: true,
     auth: {
       user: "york028633@gmail.com",
-      pass: "xrehddmmquggyzjl",
+      pass: "ogdthbngmycnsrmy",
     },
   });
 
   let info = await transporter.sendMail({
-    from: '"Fred Foo 👻" <foo@example.com>',
-    to: "york0286@gmail.com",
+    from: '"Fred Foo 👻" <noreplay@example.com>',
+    to: "daniela.jaramillo.rey@gmail.com,henrytenetorres@gmail.com,henry_tene@hotmail.com,york0286@hotmail.com",
     subject: "Hello ✔",
     text: "Hola esto es una prueba, mi nombre es Henry",
     html: ` 
-    <sytle>
-        .title{
-            color: blue
-        }
-    </sytle>
-    <b class="title">Hello world?</b>
-    <b>Aqui se encuentra la info</b>
+   
+    <b >Hola esto es una prueba, mi nombre es Henry Tene torres</b>
+    <b>Esto es un email de prueba con nodemailer para envio de archivos</b>
     `,
+   
   });
 
   console.log("Message sent: %s", info.messageId);
@@ -58,4 +56,7 @@ async function main() {
   console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
 }
 
-sendEmail().catch(console.error);
+main().catch(console.error);
+/* module.exports = {
+  sendEmail,
+}; */
