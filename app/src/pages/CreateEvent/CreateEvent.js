@@ -97,6 +97,7 @@ function CreateEvent(props) {
             className=""
           />
         </div> */}
+        <div className="form-group">Hola</div>
         <div className="button-wrapper">
           {/* <div className="form-group">
             <button className="btn btn-primary" onClick={uploadImage}>
