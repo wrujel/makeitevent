@@ -1,0 +1,15 @@
+.title {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.event-image {
+  margin-bottom: 2rem;
+}
+
+.button-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  margin-top: 2rem;
+}
