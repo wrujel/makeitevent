@@ -9,6 +9,7 @@ import * as Yup from "yup";
 import { login } from "../../actions/auth";
 import { clearMessage } from "../../actions/message";
 import "./Login.css";
+import { Button } from "../Styled/Button.js";
 
 const Login = (props) => {
   const form = useRef();
@@ -101,7 +102,7 @@ const Login = (props) => {
           </div>
 
           <div className="form-group login-buttons-wrapper">
-            <button
+            <Button
               type="submit"
               className="btn btn-primary"
               disabled={loading}
@@ -110,7 +111,7 @@ const Login = (props) => {
                 <span className="spinner-border spinner-border-sm"></span>
               )}
               <span>Login</span>
-            </button>
+            </Button>
           </div>
 
           {message && (

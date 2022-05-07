@@ -7,7 +7,7 @@
 }
 
 .register-buttons-wrapper{
-    margin-top: 2rem;
-    display: flex;
+    margin-top: 1rem;
+    display: block !important;
     justify-content: space-evenly;
 }

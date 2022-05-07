@@ -5,6 +5,8 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import "./Register.css";
+import { Button} from "../Styled/Button";
+import { ButtonReset } from "../Styled/ButtonReset";
 
 import { register as actionRegister } from "../../actions/auth";
 import { clearMessage } from "../../actions/message";
@@ -159,7 +161,7 @@ const Register = () => {
           </div>
 
           <div className="form-group register-buttons-wrapper">
-            <button
+            <Button
               type="submit"
               className="btn btn-primary"
               disabled={loading}
@@ -168,14 +170,16 @@ const Register = () => {
                 <span className="spinner-border spinner-border-sm"></span>
               )}
               <span>Register</span>
-            </button>
-            <button
-              type="button"
-              onClick={() => reset()}
-              className="btn btn-warning float-right"
-            >
-              Reset
-            </button>
+            </Button>
+            <div>
+              <ButtonReset
+                type="button"
+                onClick={() => reset()}
+                className="btn btn-warning float-right"
+              >
+                Reset
+              </ButtonReset>
+            </div>
           </div>
 
           {message && (
